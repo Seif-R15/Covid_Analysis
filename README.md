@@ -1,4 +1,4 @@
-[![img Title](ODai_LinkedIN.gif)]
+[![img Title](/Outputs/Advanced_Covid_HDFS_Pipeline.png)]
 
 # Covid_Analysis From Ingestion to Visualization
 Create an automated pipeline from Ingestion using HDFS Hive hql script and Oozie workflow to Visualization using Power BI

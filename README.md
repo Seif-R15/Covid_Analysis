@@ -1,4 +1,4 @@
-![image](https://github.com/Seif-R15/Covid_Analysis/assets/90916570/e5149293-ca0c-4906-917e-087dbe067b75)# Covid_Analysis
+# Covid_Analysis
 Covid_Analysis from Ingestion using HDFS Hive hql script and Oozie workflow to Visualization using Power BI
 
 # Steps

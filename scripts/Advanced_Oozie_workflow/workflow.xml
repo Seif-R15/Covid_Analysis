@@ -1,0 +1,61 @@
+
+<workflow-app name="Advanced_Covid_HDFS_TO_CSV_Pipeline" xmlns="uri:oozie:workflow:0.5">
+    <start to="shell-05ae"/>
+    <kill name="Kill">
+        <message>Action failed, error message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+    </kill>
+    <action name="shell-05ae">
+        <shell xmlns="uri:oozie:shell-action:0.1">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <exec>/user/cloudera/load_dataset_to_hdfs.sh</exec>
+            <file>/user/cloudera/load_dataset_to_hdfs.sh#load_dataset_to_hdfs.sh</file>
+              <capture-output/>
+        </shell>
+        <ok to="decision-e8b1"/>
+        <error to="Kill"/>
+    </action>
+    <action name="hive2-9365">
+        <hive2 xmlns="uri:oozie:hive2-action:0.1">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <jdbc-url>jdbc:hive2://quickstart.cloudera:10000/default</jdbc-url>
+            <script>/user/cloudera/final.hql</script>
+        </hive2>
+        <ok to="shell-4f55"/>
+        <error to="Kill"/>
+    </action>
+    <action name="hive2-9736">
+        <hive2 xmlns="uri:oozie:hive2-action:0.1">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <jdbc-url>jdbc:hive2://quickstart.cloudera:10000/default</jdbc-url>
+            <script>/user/cloudera/remove-hive.hql</script>
+        </hive2>
+        <ok to="End"/>
+        <error to="Kill"/>
+    </action>
+    <decision name="decision-e8b1">
+        <switch>
+            <case to="hive2-9365">
+              ${ 1 gt 0 }
+            </case>
+            <case to="hive2-9736">
+              ${ 1 gt 0 }
+            </case>
+            <default to="End"/>
+        </switch>
+    </decision>
+    <action name="shell-4f55">
+        <shell xmlns="uri:oozie:shell-action:0.1">
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <exec>/user/cloudera/get_output.sh</exec>
+            <file>/user/cloudera/get_output.sh#get_output.sh</file>
+              <capture-output/>
+        </shell>
+        <ok to="End"/>
+        <error to="Kill"/>
+    </action>
+    <end name="End"/>
+</workflow-app>

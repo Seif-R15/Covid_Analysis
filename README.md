@@ -1,5 +1,5 @@
 # Covid_Analysis
-Covid_Analysis from Ingestion using HDFS Hive hql script and Oozie workflow to Visualization using Power BI
+Create an automated pipeline from Ingestion using HDFS Hive hql script and Oozie workflow to Visualization using Power BI
 
 # Steps
 

@@ -1,4 +1,4 @@
-[![img Titl](/scripts/Advanced_Oozie_workflow/Advanced_HDFS_Workflow_Pipeline_with_Success.png)]
+ [](Video.gif)
 
 # Covid_Analysis From Ingestion to Visualization
 Create an automated pipeline from Ingestion using HDFS Hive hql script and Oozie workflow to Visualization using Power BI
@@ -7,8 +7,6 @@ Create an automated pipeline from Ingestion using HDFS Hive hql script and Oozie
 
 - Transfer dataset from local machine to the virtual machine using appropriate tool as WIN SCP
 - Load dataset from virtual machine document to Cloudera HDFS by creating a shell script load_dataset_to_hdfs.sh
-  
-   [](Video.gif)
   
 - EXTRACT: Extract data from the covid-19.csv file to created tables.
 - LOAD: Load the data extracted to make the Staging, Partitioning, Final_Output stages.

@@ -16,6 +16,6 @@ Create an automated pipeline from Ingestion using HDFS Hive hql script and Oozie
 - AUTOMATE: Automate these ETL process to be used for any desired csv file.
 - VISUALIZE: Show on a map the top 10 ranking countries in death rate and in testing rate, and show the top 10 ranking countries in testing rate on a pie chart on a Power BI dashboard
   
-  [![img Titl](/Visualization_PowerBi/Visualization_Outputs.png)]
+  [![img Titl](/video.gif)]
 
 

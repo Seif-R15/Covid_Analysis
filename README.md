@@ -1,4 +1,4 @@
- [](Video.gif)
+ [!](Video.gif)
 
 # Covid_Analysis From Ingestion to Visualization
 Create an automated pipeline from Ingestion using HDFS Hive hql script and Oozie workflow to Visualization using Power BI
